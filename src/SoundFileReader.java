@@ -68,7 +68,7 @@ public class SoundFileReader {
     }
     
     public byte readByte() throws IOException{
-        if(frameCounter == audioFormat.getFrameSize()){
+        if(frameCounter == audioFormat.getFrameSize() - 1){
             frameCounter = 0;
             byte[] check = readFrame();
             if(check == null){
