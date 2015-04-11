@@ -17,7 +17,7 @@ class ImageProcessor {
             
             SoundFileWriter out = new SoundFileWriter("sound/out.wav");
             
-            out.writeToBuffer(readImage("test.png"));
+            out.writeToBuffer(readImage("monalisa.png"));
             
             out.writeFromBufferToFile();
         } catch (Exception e) {
@@ -40,9 +40,9 @@ class ImageProcessor {
             for (int i = 0; i < y; i++) {
                 int[] a = new int[3];
                 try {
-                    a[0] = (int) reader.readByte() + 127;
-                    a[1] = (int) reader.readByte() + 127;
-                    a[2] = (int) reader.readByte() + 127;
+                    a[0] = (int) reader.readByte() + 128;
+                    a[1] = (int) reader.readByte() + 128;
+                    a[2] = (int) reader.readByte() + 128;
                 } catch (EOFException e) {
                     wr.setPixel(j, i, a);
                     break mainLoop;
@@ -94,7 +94,7 @@ class ImageProcessor {
                     int[] rgb = new int[3];
                     raster.getPixel(i, j, rgb);
                     for (int k = 0; k < rgb.length; k++) {
-                        output.add(new Byte((byte) (rgb[k] - 127)));
+                        output.add(new Byte((byte) (rgb[k] - 128)));
                     }
                 }
             }
