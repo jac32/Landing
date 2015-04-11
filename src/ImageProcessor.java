@@ -11,9 +11,15 @@ class ImageProcessor {
     public static void main(String[] args) {
 
         try {
-            SoundFileReader in = new SoundFileReader("sound/bach.wav");
+            SoundFileReader in = new SoundFileReader("sound/sandstorm.wav");
 
             createImage(in);
+            
+            SoundFileWriter out = new SoundFileWriter("sound/out.wav");
+            
+            out.writeToBuffer(readImage("test.png"));
+            
+            out.writeFromBufferToFile();
         } catch (Exception e) {
             e.printStackTrace();
         }
