@@ -14,6 +14,7 @@ class ImageProcessor {
     //public static boolean rgba = false;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static void convertToSound(String filePath) {
 
         try {
@@ -39,6 +40,14 @@ class ImageProcessor {
 
             createOverlayImage();
 >>>>>>> Twitter
+=======
+    public static void convertToSound(String filePath) {
+
+        try {
+            SoundFileWriter out = new SoundFileWriter("sound/out.wav");
+
+            out.writeToBuffer(readImage(filePath));
+>>>>>>> 515c74fd730481b21d75011267819759e899500b
 
             out.writeFromBufferToFile();
         } catch (Exception e) {
@@ -47,6 +56,9 @@ class ImageProcessor {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 515c74fd730481b21d75011267819759e899500b
     public static void convertToImage(String filePath) throws UnsupportedAudioFileException {
 
         try {
@@ -61,6 +73,7 @@ class ImageProcessor {
         }
     }
 
+<<<<<<< HEAD
 =======
      public static void authenticateTwitter(){
         ConfigurationBuilder cb = new ConfigurationBuilder();
@@ -73,6 +86,8 @@ class ImageProcessor {
     }
     
 >>>>>>> Twitter
+=======
+>>>>>>> 515c74fd730481b21d75011267819759e899500b
     public static void createImage(SoundFileReader reader) throws IOException {
         int length = (int) reader.getFileSizeInBytes();
 
