@@ -4,13 +4,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Display extends JPanel implements ActionListener {
-
-        private ImagePanel imagePanel;
+private ImagePanel imagePanel;
         private JFileChooser fileChooser;
         private JButton openButton;
+        private JButton twitterButton;
         private BufferedReader br;
         private File file;
         int returnVal;
@@ -20,16 +23,20 @@ public class Display extends JPanel implements ActionListener {
             imagePanel = new ImagePanel();
             fileChooser = new JFileChooser();
             openButton = new JButton("Select");
+            twitterButton = new JButton("Query");
 
-            setPreferredSize(new Dimension(278, 179));
+            setPreferredSize(new Dimension(800, 600));
             setLayout(null);
 
 
             add(imagePanel);
             add(openButton);
+            add(twitterButton);
 //            imagePanel.setBounds(0,0,200,200);
-            openButton.setBounds(84, 145, 100, 25);
+            openButton.setBounds(144, 545, 100, 25);
             openButton.addActionListener(this);
+            twitterButton.setBounds(34, 545, 100, 25);
+            twitterButton.addActionListener(this);
         }
 
         public void actionPerformed(ActionEvent e){
