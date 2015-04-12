@@ -1,5 +1,6 @@
 import java.awt.image.*;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -8,19 +9,29 @@ class ImageProcessor {
     //static final int X = 3962, Y = 6495;
     //public static boolean rgba = false;
 
-    public static void main(String[] args) {
+    public static void convertToSound(String filePath) {
 
         try {
-            SoundFileReader in = new SoundFileReader("sound/sandstorm.wav");
-
-            createImage(in);
-            
             SoundFileWriter out = new SoundFileWriter("sound/out.wav");
-            
-            out.writeToBuffer(readImage("monalisa.png"));
-            
+
+            out.writeToBuffer(readImage(filePath));
+
             out.writeFromBufferToFile();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void convertToImage(String filePath) throws UnsupportedAudioFileException {
+
+        try {
+            SoundFileReader in = new SoundFileReader(filePath);
+
+            createImage(in);
+
+        } catch (UnsupportedAudioFileException e) {
+            throw new UnsupportedAudioFileException();
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
