@@ -1,6 +1,7 @@
 
 import java.awt.image.*;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
 import java.util.ArrayList;
 import twitter4j.Twitter;
@@ -12,6 +13,14 @@ class ImageProcessor {
     //static final int X = 3962, Y = 6495;
     //public static boolean rgba = false;
 
+<<<<<<< HEAD
+    public static void convertToSound(String filePath) {
+
+        try {
+            SoundFileWriter out = new SoundFileWriter("sound/out.wav");
+
+            out.writeToBuffer(readImage(filePath));
+=======
     static final String BASE_URL = "https://api.twitter.com/1.1/search/q=%23mlhtest123";
     
    
@@ -29,6 +38,7 @@ class ImageProcessor {
             out.writeToBuffer(readImage("test.png"));
 
             createOverlayImage();
+>>>>>>> Twitter
 
             out.writeFromBufferToFile();
         } catch (Exception e) {
@@ -36,6 +46,22 @@ class ImageProcessor {
         }
     }
 
+<<<<<<< HEAD
+    public static void convertToImage(String filePath) throws UnsupportedAudioFileException {
+
+        try {
+            SoundFileReader in = new SoundFileReader(filePath);
+
+            createImage(in);
+
+        } catch (UnsupportedAudioFileException e) {
+            throw new UnsupportedAudioFileException();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+=======
      public static void authenticateTwitter(){
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
@@ -46,6 +72,7 @@ class ImageProcessor {
         Twitter twitter = tf.getInstance();
     }
     
+>>>>>>> Twitter
     public static void createImage(SoundFileReader reader) throws IOException {
         int length = (int) reader.getFileSizeInBytes();
 
